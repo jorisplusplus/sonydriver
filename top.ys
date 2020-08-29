@@ -1,0 +1,6 @@
+read_verilog rtl/top.v
+read_verilog rtl/pll.v
+read_verilog rtl/liteeth_core.v
+read_verilog rtl/phy_io.v
+read_verilog rtl/serial_driver.v
+synth_ecp5 -retime

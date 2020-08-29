@@ -1,0 +1,39 @@
+LOCATE COMP "rgmii_tx_clk" SITE  "M2";
+LOCATE COMP "rgmii_txd[0]" SITE  "L1";
+LOCATE COMP "rgmii_txd[1]" SITE  "L3";
+LOCATE COMP "rgmii_txd[2]" SITE  "P2";
+LOCATE COMP "rgmii_txd[3]" SITE  "L4";
+LOCATE COMP "rgmii_tx_ctl" SITE  "M3";
+LOCATE COMP "rgmii_rx_clk" SITE  "M1";
+LOCATE COMP "rgmii_rxd[0]" SITE  "N1";
+LOCATE COMP "rgmii_rxd[1]" SITE  "M5";
+LOCATE COMP "rgmii_rxd[2]" SITE  "N5";
+LOCATE COMP "rgmii_rxd[3]" SITE  "M6";
+LOCATE COMP "rgmii_rx_ctl" SITE  "N6";
+LOCATE COMP "mdio_scl"     SITE  "P3";             #"P3";
+LOCATE COMP "mdio_sda"     SITE  "T2";             #"T2";
+LOCATE COMP "phy_resetn"   SITE  "P5";             #"P5";
+
+IOBUF PORT "rgmii_tx_clk"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_txd[0]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_txd[1]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_txd[2]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_txd[3]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_tx_ctl"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rx_clk"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rxd[0]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rxd[1]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rxd[2]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rxd[3]"  IO_TYPE=LVCMOS33;
+IOBUF PORT "rgmii_rx_ctl"  IO_TYPE=LVCMOS33;
+IOBUF PORT "mdio_scl"      IO_TYPE=LVCMOS33;
+IOBUF PORT "mdio_sda"      OPENDRAIN=ON IO_TYPE=LVCMOS33;
+IOBUF PORT "phy_resetn"    IO_TYPE=LVCMOS33;
+
+LOCATE COMP "iclk" SITE "P6" ;
+LOCATE COMP "oClk" SITE "F3" ;
+LOCATE COMP "LED" SITE "P11" ;
+
+IOBUF PORT "LED" IO_TYPE=LVTTL33 OPENDRAIN=ON ;
+IOBUF PORT "clk" IO_TYPE=LVTTL33 ;
+IOBUF PORT "oClk" IO_TYPE=LVTTL33 ;
