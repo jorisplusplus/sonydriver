@@ -1,15 +1,15 @@
 module drive(iSysclk, iWREN, iImage, iAddress, iBrightness, iClkFrame, oUC, oUP, oSDO);
 
-input iSysclk;
-input iWREN;
-input [29:0] iImage;
-input [12:0] iAddress;
-input [3:0] iBrightness;
+input wire iSysclk;
+input wire iWREN;
+input wire [29:0] iImage;
+input wire [12:0] iAddress;
+input wire [3:0] iBrightness;
 
-input iClkFrame;
+input wire iClkFrame;
 output reg oUC = 0;
-output oUP;
-output [1:0] oSDO;
+output wire oUP;
+output wire [1:0] oSDO;
 
 reg [29:0] imagebuf [8191:0];
 reg [18:0] refreshcounter = 0;
@@ -22,7 +22,7 @@ reg [5:0] transmission_state;
 reg [12:0] readaddress;
 reg [29:0] readval;
 reg [29:0] pixel0, pixel1;
-reg [2:0] pixelpos;
+reg [3:0] pixelpos;
 
 wire [3:0] transpos;
 wire [3:0] transpos_delay;
@@ -92,10 +92,10 @@ begin
         begin
             pixelpos <= 0;
             if(transpos == 0)
-                SDO0_buf <= {0, 0, iBrightness};
+                SDO0_buf <= {1'b0, 1'b0, iBrightness};
             else if(transpos_delay == 0)
             begin
-                SDO1_buf <= {0, 0, iBrightness};
+                SDO1_buf <= {1'b0, 1'b0, iBrightness};
                 transmission_state <= 2;
             end
         end
@@ -121,9 +121,9 @@ begin
         else if(transmission_state % 3 == 2) 
         begin
             if(transpos == 2)
-                readaddress <= {address, 0, pixelpos};
+                readaddress <= {address, 1'b0, pixelpos};
             else if(transpos_delay == 2)
-                readaddress <= {address, 1, pixelpos};
+                readaddress <= {address, 1'b1, pixelpos};
             if(transpos == 0)
             begin
                 SDO0_buf <= readval[29:20];

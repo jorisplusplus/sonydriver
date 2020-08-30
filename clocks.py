@@ -1,2 +1,2 @@
-ctx.addClock("display_clock", 25)
+ctx.addClock("iclk", 25)
 
